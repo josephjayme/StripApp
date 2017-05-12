@@ -1,8 +1,27 @@
-create table tasks (
-   id int8 primary key,
-   title text,
-   description text,
-   done boolean
+create table energydata (
+   stripperNO int NOT NULL,
+   datetime timestamp NOT NULL,
+   power real,
+   current real,
+   voltage real,
+   PRIMARY KEY (stripperno, datetime)
+);
+
+create table schedules (
+   stripperNO int NOT NULL,
+   schedule timestamp NOT NULL,
+   action boolean,
+   PRIMARY KEY (stripperno, datetime)
+);
+
+create table stripper (
+   stripperID int NOT NULL PRIMARY KEY,
+   status boolean
+);
+
+create table stripper (
+   stripperID int NOT NULL PRIMARY KEY,
+   status boolean
 );
 
 create or replace function newtask(par_id int8, par_title  text, par_description text, par_done boolean) returns text as
